@@ -52,7 +52,7 @@ const App = () => {
         <button type="submit">Добавить путешествие</button>
       </form>
 
-      {/* Фильтр */}
+      
       <div className="filter-section">
         <input 
           type="text" 
@@ -61,7 +61,7 @@ const App = () => {
         />
       </div>
 
-      {/* Список карточек */}
+      
       <div className="grid">
         {filteredTravels.map(t => (
           <div key={t.id} className="card">
