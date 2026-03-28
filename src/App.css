@@ -1,17 +1,17 @@
-/* App.css - Dark Theme with Purple Accent */
 
-/* Определение переменных CSS */
+
+
 :root {
-  --bg-color: #121212; /* Глубокий темно-серый для фона */
-  --card-bg-color: #1e1e1e; /* Чуть светлее для карточек/форм */
-  --text-primary: #e0e0e0; /* Светлый текст */
-  --text-secondary: #aaaaaa; /* Более тусклый текст для описаний */
-  --accent-purple: #7851a9; /* Основной фиолетовый акцент */
-  --accent-purple-hover: #8a2be2; /* Более яркий фиолетовый при наведении */
-  --border-color: #333333; /* Цвет рамок */
+  --bg-color: #121212; 
+  --card-bg-color: #1e1e1e; 
+  --text-primary: #e0e0e0; 
+  --text-secondary: #aaaaaa;
+  --accent-purple: #7851a9; 
+  --accent-purple-hover: #8a2be2;
+  --border-color: #333333; 
 }
 
-/* Общие стили */
+
 .container { 
   max-width: 900px; 
   margin: 0 auto; 
