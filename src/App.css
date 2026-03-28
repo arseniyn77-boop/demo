@@ -83,7 +83,6 @@ h1 {
   gap: 25px; 
 }
 
-
 .card { 
   background: var(--card-bg-color);
   border: 1px solid var(--border-color); 
