@@ -1,4 +1,3 @@
-// App.js (обновленная версия для темной темы)
 import React, { useState } from 'react';
 import './App.css';
 

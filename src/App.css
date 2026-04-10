@@ -1,15 +1,15 @@
 :root {
-  /* Заменяем темные цвета на светлые */
-  --bg-color: #f4f7f6;        /* Светло-серый фон страницы */
-  --card-bg-color: #ffffff;   /* Белый фон для карточек и форм */
-  --text-primary: #333333;    /* Темный текст для контраста */
-  --text-secondary: #666666;  /* Серый текст для описаний */
+
+  --bg-color: #000000;        
+  --card-bg-color: #000000;   
+  --text-primary: #333333;    
+  --text-secondary: #666666;  
   --accent-purple: #7851a9;   
   --accent-purple-hover: #8a2be2;
-  --border-color: #dddddd;    /* Светлые границы */
+  --border-color: #000000;    
 }
 
-/* Добавим стили для body, чтобы фон был на всю страницу, а не только в контейнере */
+
 body {
   margin: 0;
   background-color: var(--bg-color);
@@ -25,30 +25,29 @@ body {
   min-height: 100vh;
 }
 
-/* В светлой теме тени лучше делать мягче и прозрачнее */
+
 .add-form { 
   display: flex; 
   flex-direction: column; 
   gap: 12px; 
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   background: var(--card-bg-color); 
   padding: 25px; 
   border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Уменьшили прозрачность тени */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
   border: 1px solid var(--border-color);
 }
 
 .add-form input, .add-form textarea { 
   padding: 12px; 
-  background-color: #ffffff; /* Поля ввода теперь белые */
+  background-color: #ffffff;
   border: 1px solid var(--border-color); 
   border-radius: 6px; 
   color: var(--text-primary);
   transition: border-color 0.3s;
 }
 
-/* Остальные стили можно оставить без изменений, 
-   так как они используют переменные, которые мы обновили выше */
+
 
 .add-form input:focus, .add-form textarea:focus {
   outline: none;
@@ -71,6 +70,27 @@ body {
   border-color: var(--accent-purple);
 }
 
+.delete-btn {
+  background: none !important;
+  color: var(--text-secondary) !important;
+  padding: 0 !important;
+  font-size: 1.2rem;
+  border: none !important;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: #ff4757 !important;
+}
+
+.filter-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
 
 .grid { 
   display: grid; 
