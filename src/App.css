@@ -1,13 +1,19 @@
 :root {
-  --bg-color: #121212; 
-  --card-bg-color: #1e1e1e; 
-  --text-primary: #e0e0e0; 
-  --text-secondary: #aaaaaa;
-  --accent-purple: #7851a9; 
+  /* Заменяем темные цвета на светлые */
+  --bg-color: #f4f7f6;        /* Светло-серый фон страницы */
+  --card-bg-color: #ffffff;   /* Белый фон для карточек и форм */
+  --text-primary: #333333;    /* Темный текст для контраста */
+  --text-secondary: #666666;  /* Серый текст для описаний */
+  --accent-purple: #7851a9;   
   --accent-purple-hover: #8a2be2;
-  --border-color: #333333; 
+  --border-color: #dddddd;    /* Светлые границы */
 }
 
+/* Добавим стили для body, чтобы фон был на всю страницу, а не только в контейнере */
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+}
 
 .container { 
   max-width: 900px; 
@@ -19,21 +25,7 @@
   min-height: 100vh;
 }
 
-h1 {
-  text-align: center;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--accent-purple);
-  padding-bottom: 10px;
-}
-
-.student-info { 
-  color: var(--text-secondary); 
-  font-style: italic; 
-  margin-bottom: 30px; 
-  text-align: center;
-}
-
-
+/* В светлой теме тени лучше делать мягче и прозрачнее */
 .add-form { 
   display: flex; 
   flex-direction: column; 
@@ -42,18 +34,21 @@ h1 {
   background: var(--card-bg-color); 
   padding: 25px; 
   border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Уменьшили прозрачность тени */
   border: 1px solid var(--border-color);
 }
 
 .add-form input, .add-form textarea { 
   padding: 12px; 
-  background-color: var(--bg-color);
+  background-color: #ffffff; /* Поля ввода теперь белые */
   border: 1px solid var(--border-color); 
   border-radius: 6px; 
   color: var(--text-primary);
   transition: border-color 0.3s;
 }
+
+/* Остальные стили можно оставить без изменений, 
+   так как они используют переменные, которые мы обновили выше */
 
 .add-form input:focus, .add-form textarea:focus {
   outline: none;
