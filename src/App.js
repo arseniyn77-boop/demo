@@ -8,10 +8,18 @@ const App = () => {
   ]);
 
   const [filter, setFilter] = useState('');
+  const [sortByLikes, setSortByLikes] = useState(false); // Состояние для сортировки
   const [newTravel, setNewTravel] = useState({ country: '', title: '', desc: '' });
 
   const handleLike = (id) => {
     setTravels(travels.map(t => t.id === id ? { ...t, likes: t.likes + 1 } : t));
+  };
+
+  // НОВЫЙ ФУНКЦИОНАЛ: Удаление
+  const handleDelete = (id) => {
+    if (window.confirm('Вы точно хотите удалить это путешествие?')) {
+      setTravels(travels.filter(t => t.id !== id));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -21,16 +29,16 @@ const App = () => {
     setNewTravel({ country: '', title: '', desc: '' });
   };
 
-  const filteredTravels = travels.filter(t => 
-    t.country.toLowerCase().includes(filter.toLowerCase())
-  );
+  // Логика фильтрации и сортировки
+  const processedTravels = travels
+    .filter(t => t.country.toLowerCase().includes(filter.toLowerCase()))
+    .sort((a, b) => sortByLikes ? b.likes - a.likes : 0); // Сортировка по лайкам
 
   return (
     <div className="container">
       <h1>Каталог путешествий</h1>
       <p className="student-info">Студент: Kolesnikov A.U. | Группа: IUK2-32b</p>
 
-      {/* Форма добавления */}
       <form onSubmit={handleSubmit} className="add-form">
         <input 
           placeholder="Страна" 
@@ -51,20 +59,36 @@ const App = () => {
         <button type="submit">Добавить путешествие</button>
       </form>
 
-      
-      <div className="filter-section">
+      <div className="filter-section" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
         <input 
           type="text" 
           placeholder="Фильтр по стране..." 
           onChange={(e) => setFilter(e.target.value)} 
+          style={{ flex: 1 }}
         />
+
+        <button 
+          onClick={() => setSortByLikes(!sortByLikes)}
+          style={{ background: sortByLikes ? '#ff4757' : 'var(--accent-purple)' }}
+        >
+          {sortByLikes ? 'Сбросить сортировку' : 'Сначала популярные'}
+        </button>
       </div>
 
-      
       <div className="grid">
-        {filteredTravels.map(t => (
+        {processedTravels.map(t => (
           <div key={t.id} className="card">
-            <span className="badge">{t.country}</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <span className="badge">{t.country}</span>
+            
+              <button 
+                onClick={() => handleDelete(t.id)} 
+                className="delete-btn"
+                title="Удалить"
+              >
+                🗑️
+              </button>
+            </div>
             <h3>{t.title}</h3>
             <p>{t.desc}</p>
             <div className="card-footer">
